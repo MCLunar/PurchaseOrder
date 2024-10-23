@@ -329,3 +329,30 @@ const dataJSON = {
        "ErrorCode":"0"
     }
  };
+
+const ordersList = dataJSON.mvPurchaseOrders;
+
+const purchaseOrderNoList = ordersList.map(order => order.PurchaseOrderNo);
+
+const purchaseOrderTypeAbbreviationList = ordersList.map(order => order.PurchaseOrderTypeAbbreviation);
+
+let listElement = ``;
+for(let i =0;i<ordersList.length;i++ ){
+    listElement += `<li> ${purchaseOrderNoList[i]} - ${purchaseOrderTypeAbbreviationList[i]}</li>`;}
+
+document.querySelector('.container').innerHTML = `
+<h1>Purchase Order List</h1>
+<ul> ${listElement}</ul>`;
+
+const purchaseOrderAddressList = ordersList.map(order => order.PurchaseOrderAddress);
+
+const purchaseOrderContactPersonList = ordersList.map(order => order.PurchaseOrderContactPerson);
+
+const purchaseOrderStatusList = ordersList.map(order => order.PurchaseOrderStatus);
+
+const purchaseOrderDetailsList = ordersList.map(order => order.PurchaseOrderDetails);
+
+console.log(purchaseOrderDetailsList[1])
+
+
+
